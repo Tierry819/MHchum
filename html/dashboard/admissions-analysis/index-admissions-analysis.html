@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="horizontal-nav skin-green fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html">
+                        <img src="assets/images/logo/logo-icon.svg" alt="homepage" height="32" />
+                        <img src="assets/images/logo/logo-text.svg" alt="homepage" height="30" />
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav my-lg-0 ms-auto">
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/null.jpg" alt="user"> 
+                                <span class="hidden-md-down fw-bold">學務主任 &nbsp;<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end animated flipInY">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> 帳號管理</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="html/login.html" class="dropdown-item"><i class="fa fa-power-off"></i> 登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb align-items-center">
+                    <i class="mdi mdi-24px mdi-home me-1"></i><a class="breadcrumb-item" href="html/index.html">首頁</a>
+                    <a class="breadcrumb-item" href="html/dashboard/dashboard-index.html">數據分析</a>
+                    <span class="breadcrumb-item active">招生資料分析</span>
+                </nav>
+
+                <!-- Chart and Table Card -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">招生資料分析圖表總覽</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>圖表名稱</th>
+                                                <th>內容</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td><a href="html/dashboard/admissions-analysis/admissions-source.html">新生人數來源國中分析</a></td>
+                                                <td>每年新生人數排名來源國中分析</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td><a href="html/dashboard/admissions-analysis/grad-school-region.html">畢業國中地區分布統計</a></td>
+                                                <td>每年新生畢業國中地區統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td><a href="html/dashboard/admissions-analysis/grad-region-5yr.html">畢業國中地區分布五年比較</a></td>
+                                                <td>新生畢業國中地區五年比較（折線圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>4</td>
+                                                <td><a href="html/dashboard/admissions-analysis/exam-scores.html">國中會考成績分析統計</a></td>
+                                                <td>每年新生國中會考成績統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5</td>
+                                                <td><a href="html/dashboard/admissions-analysis/exam-5yr-by-subject.html">國中會考成績分析五年比較（依科目）</a></td>
+                                                <td>新生國中會考成績五年比較－依科目（折線圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>6</td>
+                                                <td><a href="html/dashboard/admissions-analysis/exam-5yr-by-grade.html">國中會考成績分析五年比較（依成績）</a></td>
+                                                <td>新生國中會考成績五年比較－依成績（折線圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>7</td>
+                                                <td><a href="html/dashboard/admissions-analysis/achievement.html">國中學習成就分析統計</a></td>
+                                                <td>每年新生國中學習成就統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>8</td>
+                                                <td><a href="html/dashboard/admissions-analysis/achievement-5yr.html">國中學習成就分析五年比較（依科目）</a></td>
+                                                <td>新生國中學習成就五年比較－依科目（折線圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>9</td>
+                                                <td><a href="html/dashboard/admissions-analysis/technical-entry-rate.html">技藝班入學率分析統計</a></td>
+                                                <td>每年技藝班新生入學分析</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td><a href="html/dashboard/admissions-analysis/disadvantaged.html">經文不利身份別入學分析統計</a></td>
+                                                <td>每年經文不利身份別新生人數統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>11</td>
+                                                <td><a href="html/dashboard/admissions-analysis/disadvantaged-5yr.html">經文不利身份別入學分析五年比較</a></td>
+                                                <td>經文不利身份別新生人數五年比較（折線圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>12</td>
+                                                <td><a href="html/dashboard/admissions-analysis/pathways.html">新生入學管道分析統計</a></td>
+                                                <td>每年新生入學管道統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>13</td>
+                                                <td><a href="html/dashboard/admissions-analysis/pathways-5yr.html">新生入學管道分析五年比較</a></td>
+                                                <td>新生入學管道分析五年比較（折線圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>14</td>
+                                                <td><a href="html/dashboard/admissions-analysis/first-choice.html">五專優免錄取生志願分析統計</a></td>
+                                                <td>每年五專優免新生志願分析統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>15</td>
+                                                <td><a href="html/dashboard/admissions-analysis/first-choice-5yr.html">五專優免錄取生志願分析五年比較</a></td>
+                                                <td>五專優免新生志願分析五年比較</td>
+                                            </tr>
+                                            <tr>
+                                                <td>16</td>
+                                                <td><a href="html/dashboard/admissions-analysis/info-source.html">學資訊獲得來源分析</a></td>
+                                                <td>每年新生學資訊獲得來源分析統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>17</td>
+                                                <td><a href="html/dashboard/admissions-analysis/reasons.html">選擇敏惠因素分析</a></td>
+                                                <td>每年新生選擇敏惠因素分析統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>18</td>
+                                                <td><a href="html/dashboard/admissions-analysis/devote-resources.html">招生投入資源分析</a></td>
+                                                <td>每年招生投入資源分析統計（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>19</td>
+                                                <td><a href="html/dashboard/admissions-analysis/technical-followup.html">技藝班後續就讀情形追蹤</a></td>
+                                                <td>技藝班後續就讀情形追蹤－休學、退學、轉學（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>20</td>
+                                                <td><a href="html/dashboard/admissions-analysis/technical-retention.html">技藝班續讀率分析</a></td>
+                                                <td>技藝班續讀率統計</td>
+                                            </tr>
+                                            <tr>
+                                                <td>21</td>
+                                                <td><a href="html/dashboard/admissions-analysis/pathways-followup.html">各入學管道後續就讀情形追蹤</a></td>
+                                                <td>各入學管道後續就讀情形追蹤－休學、退學、轉學（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>22</td>
+                                                <td><a href="html/dashboard/admissions-analysis/pathways-retention.html">各入學管道續讀率分析</a></td>
+                                                <td>各入學管道續讀率統計</td>
+                                            </tr>
+                                            <tr>
+                                                <td>23</td>
+                                                <td><a href="html/dashboard/admissions-analysis/disadvantaged-followup.html">經文不利身份別後續就讀情形追蹤</a></td>
+                                                <td>經文不利身份別後續就讀情形追蹤－休學、退學、轉學（柱狀圖）</td>
+                                            </tr>
+                                            <tr>
+                                                <td>24</td>
+                                                <td><a href="html/dashboard/admissions-analysis/disadvantaged-retention.html">經文不利身份別續讀率分析</a></td>
+                                                <td>經文不利身份別續讀率統計</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer text-center">
+                    All Rights Reserved by 敏惠醫護管理專科學校
+                </footer>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper -->
+        <!-- ============================================================== -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!-- Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!-- sticky kit -->
+    <script src="assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+
+</body>
+
+</html>

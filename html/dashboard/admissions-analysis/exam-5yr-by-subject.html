@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="horizontal-nav skin-green fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html">
+                        <img src="assets/images/logo/logo-icon.svg" alt="homepage" height="32" />
+                        <img src="assets/images/logo/logo-text.svg" alt="homepage" height="30" />
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav my-lg-0 ms-auto">
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/null.jpg" alt="user"> 
+                                <span class="hidden-md-down fw-bold">學務主任 &nbsp;<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end animated flipInY">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> 帳號管理</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="html/login.html" class="dropdown-item"><i class="fa fa-power-off"></i> 登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb align-items-center">
+                    <i class="mdi mdi-24px mdi-home me-1"></i><a class="breadcrumb-item" href="html/index.html">首頁</a>
+                    <a class="breadcrumb-item" href="html/dashboard/dashboard-index.html">數據分析</a>
+                    <a class="breadcrumb-item" href="html/dashboard/admissions-analysis/index-admissions-analysis.html">招生資料分析</a>
+                    <span class="breadcrumb-item active">國中會考成績分析五年比較（依科目）</span>
+                </nav>
+
+                <!-- Filter -->
+                <div class="card rounded mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label for="acad_year" class="form-label">學年度</label>
+                                <select id="acad_year" name="acad_year" class="form-select" aria-label="學年度">
+                                    <option value="114">114</option>
+                                    <option value="113">113</option>
+                                    <option value="112">112</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="department" class="form-label">科別</label>
+                                <select id="department" name="department" class="form-select" aria-label="科別">
+                                    <option value="all">全校</option>
+                                    <option value="nursing">護理科</option>
+                                    <option value="cosmetology">美保科</option>
+                                    <option value="childcare">幼保科</option>
+                                    <option value="gerontology">長健科</option>
+                                    <option value="dental-tech">牙技科</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="subject" class="form-label">科目</label>
+                                <select id="subject" name="subject" class="form-select" aria-label="科目">
+                                    <option value="chinese">國文</option>
+                                    <option value="english">英文</option>
+                                    <option value="math">數學</option>
+                                    <option value="science">自然</option>
+                                    <option value="social">社會</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart and Table Card -->
+                <div class="card">
+                    <div class="card-body py-5">
+                        <!-- Title -->
+                        <h3 class="text-center mb-3">114學年度 全校 國文科 國中會考成績分析五年比較</h3>
+
+                        <!-- Canvas for Chart.js with RWD-->
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-12 col-lg-10">
+                                <div class="chart-container">
+                                    <canvas id="exam-5yr-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table with RWD -->
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-6">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center sticky-first-col">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>會考成績</th>
+                                                <th>114學年度</th>
+                                                <th>113學年度</th>
+                                                <th>112學年度</th>
+                                                <th>111學年度</th>
+                                                <th>110學年度</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>Ａ</th>
+                                                <td>45</td>
+                                                <td>42</td>
+                                                <td>40</td>
+                                                <td>38</td>
+                                                <td>35</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ｂ</th>
+                                                <td>120</td>
+                                                <td>118</td>
+                                                <td>115</td>
+                                                <td>112</td>
+                                                <td>110</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Ｃ</th>
+                                                <td>85</td>
+                                                <td>90</td>
+                                                <td>95</td>
+                                                <td>100</td>
+                                                <td>105</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Footer -->
+                <!-- ============================================================== -->
+                <footer class="footer text-center">
+                    All Rights Reserved by 敏惠醫護管理專科學校
+                </footer>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper -->
+        <!-- ============================================================== -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!-- Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!-- sticky kit -->
+    <script src="assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 共用色票 -->
+    <script src="dist/js/chart-colors.js"></script>
+    <script>
+        const labels = ['Ａ', 'Ｂ', 'Ｃ'];
+
+        const data = {
+            labels: labels,
+            datasets: [
+                {
+                    label: '114學年度',
+                    data: [45, 120, 85],
+                    backgroundColor: ChartColors.backgrounds[0],
+                    borderColor: ChartColors.borders[0],
+                    borderWidth: 2,
+                    tension: 0,
+                    fill: false
+                },
+                {
+                    label: '113學年度',
+                    data: [42, 118, 90],
+                    backgroundColor: ChartColors.backgrounds[1],
+                    borderColor: ChartColors.borders[1],
+                    borderWidth: 2,
+                    tension: 0,
+                    fill: false
+                },
+                {
+                    label: '112學年度',
+                    data: [40, 115, 95],
+                    backgroundColor: ChartColors.backgrounds[2],
+                    borderColor: ChartColors.borders[2],
+                    borderWidth: 2,
+                    tension: 0,
+                    fill: false
+                },
+                {
+                    label: '111學年度',
+                    data: [38, 112, 100],
+                    backgroundColor: ChartColors.backgrounds[3],
+                    borderColor: ChartColors.borders[3],
+                    borderWidth: 2,
+                    tension: 0,
+                    fill: false
+                },
+                {
+                    label: '110學年度',
+                    data: [35, 110, 105],
+                    backgroundColor: ChartColors.backgrounds[4],
+                    borderColor: ChartColors.borders[4],
+                    borderWidth: 2,
+                    tension: 0,
+                    fill: false
+                }
+            ]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { boxWidth: 12, padding: 10 }
+                    },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: '會考成績'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '人數'
+                        }
+                    }
+                },
+                interaction: { mode: 'nearest', axis: 'x', intersect: false }
+            }
+        };
+
+        // Initialize Chart
+        const myChart = new Chart(
+            document.getElementById('exam-5yr-chart'),
+            config
+        );
+    </script>
+
+</body>
+
+</html>

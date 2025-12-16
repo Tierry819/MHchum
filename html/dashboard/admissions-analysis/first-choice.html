@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="horizontal-nav skin-green fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html">
+                        <img src="assets/images/logo/logo-icon.svg" alt="homepage" height="32" />
+                        <img src="assets/images/logo/logo-text.svg" alt="homepage" height="30" />
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav my-lg-0 ms-auto">
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/null.jpg" alt="user"> 
+                                <span class="hidden-md-down fw-bold">學務主任 &nbsp;<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end animated flipInY">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> 帳號管理</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="html/login.html" class="dropdown-item"><i class="fa fa-power-off"></i> 登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb align-items-center">
+                    <i class="mdi mdi-24px mdi-home me-1"></i><a class="breadcrumb-item" href="html/index.html">首頁</a>
+                    <a class="breadcrumb-item" href="html/dashboard/dashboard-index.html">數據分析</a>
+                    <a class="breadcrumb-item" href="html/dashboard/admissions-analysis/index-admissions-analysis.html">招生資料分析</a>
+                    <span class="breadcrumb-item active">五專優免錄取生志願分析統計</span>
+                </nav>
+                <!-- Filter -->
+                <div class="card rounded mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label for="acad_year" class="form-label">學年度</label>
+                                <select id="acad_year" name="acad_year" class="form-select" aria-label="學年度">
+                                    <option value="114">114</option>
+                                    <option value="113">113</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart and Table Card -->
+                <div class="card">
+                    <div class="card-body py-5">
+                        <!-- Title -->
+                        <h3 class="text-center mb-3">114學年度 五專優免錄取生志願 錄取分析</h3>
+
+                        <!-- Canvas for Chart.js with RWD -->
+                        <div class="row justify-content-center mt-4 mb-4">
+                            <div class="col-12 col-lg-10">
+                                <div class="chart-container">
+                                    <canvas id="admission-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="text-center mb-3 mt-5">114學年度 五專優免錄取生志願 報到分析</h3>
+
+                        <!-- Canvas for Chart.js with RWD -->
+                        <div class="row justify-content-center mt-4 mb-4">
+                            <div class="col-12 col-lg-10">
+                                <div class="chart-container">
+                                    <canvas id="registration-chart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Table with RWD -->
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-lg-10">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center sticky-first-col">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th></th>
+                                                <th colspan="2">護理科</th>
+                                                <th colspan="2">美保科</th>
+                                                <th colspan="2">幼保科</th>
+                                                <th colspan="2">長健科</th>
+                                                <th colspan="2">牙技科</th>
+                                                <th colspan="2" class="text-danger fw-bold">總計</th>
+                                            </tr>
+                                            <tr>
+                                                <th>志願序</th>
+                                                <th>錄取</th>
+                                                <th>報到</th>
+                                                <th>錄取</th>
+                                                <th>報到</th>
+                                                <th>錄取</th>
+                                                <th>報到</th>
+                                                <th>錄取</th>
+                                                <th>報到</th>
+                                                <th>錄取</th>
+                                                <th>報到</th>
+                                                <th class="text-danger fw-bold">錄取</th>
+                                                <th class="text-danger fw-bold">報到</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1</th>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td class="text-danger fw-bold">2</td>
+                                                <td class="text-danger fw-bold">2</td>
+                                            </tr>
+                                            <tr>
+                                                <th>2</th>
+                                                <td>5</td>
+                                                <td>3</td>
+                                                <td>8</td>
+                                                <td>8</td>
+                                                <td>12</td>
+                                                <td>12</td>
+                                                <td>10</td>
+                                                <td>10</td>
+                                                <td>7</td>
+                                                <td>7</td>
+                                                <td class="text-danger fw-bold">42</td>
+                                                <td class="text-danger fw-bold">42</td>
+                                            </tr>
+                                            <tr>
+                                                <th>3</th>
+                                                <td>8</td>
+                                                <td>6</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>7</td>
+                                                <td>7</td>
+                                                <td>4</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td class="text-danger fw-bold">25</td>
+                                                <td class="text-danger fw-bold">25</td>
+                                            </tr>
+                                            <tr>
+                                                <th>4</th>
+                                                <td>10</td>
+                                                <td>8</td>
+                                                <td>7</td>
+                                                <td>7</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td class="text-danger fw-bold">19</td>
+                                                <td class="text-danger fw-bold">19</td>
+                                            </tr>
+                                            <tr>
+                                                <th>5</th>
+                                                <td>4</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td class="text-danger fw-bold">7</td>
+                                                <td class="text-danger fw-bold">7</td>
+                                            </tr>
+                                            <tr>
+                                                <th>6</th>
+                                                <td>7</td>
+                                                <td>7</td>
+                                                <td>4</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td class="text-danger fw-bold">15</td>
+                                                <td class="text-danger fw-bold">15</td>
+                                            </tr>
+                                            <tr>
+                                                <th>7</th>
+                                                <td>3</td>
+                                                <td>1</td>
+                                                <td>7</td>
+                                                <td>7</td>
+                                                <td>4</td>
+                                                <td>4</td>
+                                                <td>3</td>
+                                                <td>3</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td class="text-danger fw-bold">17</td>
+                                                <td class="text-danger fw-bold">17</td>
+                                            </tr>
+                                            <tr>
+                                                <th>8</th>
+                                                <td>8</td>
+                                                <td>6</td>
+                                                <td>12</td>
+                                                <td>12</td>
+                                                <td>10</td>
+                                                <td>10</td>
+                                                <td>7</td>
+                                                <td>7</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td class="text-danger fw-bold">37</td>
+                                                <td class="text-danger fw-bold">37</td>
+                                            </tr>
+                                            <tr>
+                                                <th>9</th>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td class="text-danger fw-bold">2</td>
+                                                <td class="text-danger fw-bold">2</td>
+                                            </tr>
+                                            <tr>
+                                                <th>10</th>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>1</td>
+                                                <td>1</td>
+                                                <td>2</td>
+                                                <td>2</td>
+                                                <td>0</td>
+                                                <td>0</td>
+                                                <td class="text-danger fw-bold">4</td>
+                                                <td class="text-danger fw-bold">4</td>
+                                            </tr>
+                                            <tr>
+                                                <th>其他</th>
+                                                <td>21</td>
+                                                <td>21</td>
+                                                <td>21</td>
+                                                <td>21</td>
+                                                <td>9</td>
+                                                <td>9</td>
+                                                <td>9</td>
+                                                <td>9</td>
+                                                <td>4</td>
+                                                <td>4</td>
+                                                <td class="text-danger fw-bold">64</td>
+                                                <td class="text-danger fw-bold">64</td>
+                                            </tr>
+                                            <tr class="bg-light text-danger fw-bold">
+                                                <th>總計</th>
+                                                <td>66</td>
+                                                <td>56</td>
+                                                <td>67</td>
+                                                <td>67</td>
+                                                <td>51</td>
+                                                <td>51</td>
+                                                <td>36</td>
+                                                <td>36</td>
+                                                <td>16</td>
+                                                <td>16</td>
+                                                <td>236</td>
+                                                <td>226</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Footer -->
+                <!-- ============================================================== -->
+                <footer class="footer text-center">
+                    All Rights Reserved by 敏惠醫護管理專科學校
+                </footer>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper -->
+        <!-- ============================================================== -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!-- Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!-- sticky kit -->
+    <script src="assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 共用色票 -->
+    <script src="dist/js/chart-colors.js"></script>
+    <script>
+        const departments = ['護理科', '美保科', '幼保科', '長健科', '牙技科'];
+
+        // 錄取分析圖表
+        const admissionData = {
+            labels: departments,
+            datasets: [
+                {
+                    label: '第一志願',
+                    data: [0, 0, 2, 0, 0],
+                    backgroundColor: ChartColors.backgrounds[0],
+                    borderColor: ChartColors.borders[0],
+                    borderWidth: 1
+                },
+                {
+                    label: '第二志願',
+                    data: [5, 8, 12, 10, 7],
+                    backgroundColor: ChartColors.backgrounds[1],
+                    borderColor: ChartColors.borders[1],
+                    borderWidth: 1
+                },
+                {
+                    label: '第三志願',
+                    data: [8, 3, 7, 4, 3],
+                    backgroundColor: ChartColors.backgrounds[2],
+                    borderColor: ChartColors.borders[2],
+                    borderWidth: 1
+                },
+                {
+                    label: '第四志願',
+                    data: [10, 7, 1, 1, 0],
+                    backgroundColor: ChartColors.backgrounds[3],
+                    borderColor: ChartColors.borders[3],
+                    borderWidth: 1
+                },
+                {
+                    label: '第五志願',
+                    data: [4, 3, 0, 0, 0],
+                    backgroundColor: ChartColors.backgrounds[4],
+                    borderColor: ChartColors.borders[4],
+                    borderWidth: 1
+                },
+                {
+                    label: '其他',
+                    data: [39, 46, 29, 21, 6],
+                    backgroundColor: ChartColors.backgrounds[5],
+                    borderColor: ChartColors.borders[5],
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const admissionConfig = {
+            type: 'bar',
+            data: admissionData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { boxWidth: 12, padding: 10 }
+                    },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: '科別'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '人數'
+                        }
+                    }
+                }
+            }
+        };
+
+        // 報到分析圖表
+        const registrationData = {
+            labels: departments,
+            datasets: [
+                {
+                    label: '第一志願',
+                    data: [0, 0, 2, 0, 0],
+                    backgroundColor: ChartColors.backgrounds[0],
+                    borderColor: ChartColors.borders[0],
+                    borderWidth: 1
+                },
+                {
+                    label: '第二志願',
+                    data: [3, 8, 12, 10, 7],
+                    backgroundColor: ChartColors.backgrounds[1],
+                    borderColor: ChartColors.borders[1],
+                    borderWidth: 1
+                },
+                {
+                    label: '第三志願',
+                    data: [6, 3, 7, 4, 3],
+                    backgroundColor: ChartColors.backgrounds[2],
+                    borderColor: ChartColors.borders[2],
+                    borderWidth: 1
+                },
+                {
+                    label: '第四志願',
+                    data: [8, 7, 1, 1, 0],
+                    backgroundColor: ChartColors.backgrounds[3],
+                    borderColor: ChartColors.borders[3],
+                    borderWidth: 1
+                },
+                {
+                    label: '第五志願',
+                    data: [4, 3, 0, 0, 0],
+                    backgroundColor: ChartColors.backgrounds[4],
+                    borderColor: ChartColors.borders[4],
+                    borderWidth: 1
+                },
+                {
+                    label: '其他',
+                    data: [35, 46, 29, 21, 6],
+                    backgroundColor: ChartColors.backgrounds[5],
+                    borderColor: ChartColors.borders[5],
+                    borderWidth: 1
+                }
+            ]
+        };
+
+        const registrationConfig = {
+            type: 'bar',
+            data: registrationData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: { boxWidth: 12, padding: 10 }
+                    },
+                    tooltip: { mode: 'index', intersect: false }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: '科別'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '人數'
+                        }
+                    }
+                }
+            }
+        };
+
+        // 初始化圖表
+        const admissionChart = new Chart(
+            document.getElementById('admission-chart'),
+            admissionConfig
+        );
+
+        const registrationChart = new Chart(
+            document.getElementById('registration-chart'),
+            registrationConfig
+        );
+    </script>
+
+</body>
+
+</html>

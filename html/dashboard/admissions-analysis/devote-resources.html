@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="horizontal-nav skin-green fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html">
+                        <!-- Logo icon -->
+                        <img src="assets/images/logo/logo-icon.svg" alt="homepage" height="32" />
+                        <!-- Logo text -->
+                        <img src="assets/images/logo/logo-text.svg" alt="homepage" height="30" />
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav my-lg-0 ms-auto">
+                        <!-- User Profile -->
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/null.jpg" alt="user"> 
+                                <span class="hidden-md-down fw-bold">學務主任 &nbsp;<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end animated flipInY">
+                                <!-- User Profile inner links -->
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> 帳號管理</a>
+                                <!-- Dropdown divider -->
+                                <div class="dropdown-divider"></div>
+                                <!-- Logout -->
+                                <a href="html/login.html" class="dropdown-item"><i class="fa fa-power-off"></i> 登出</a>
+                            </div>
+                        </li>
+                        <!-- End User Profile -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb align-items-center">
+                    <i class="mdi mdi-24px mdi-home me-1"></i><a class="breadcrumb-item" href="html/index.html">首頁</a>
+                    <a class="breadcrumb-item" href="html/dashboard/dashboard-index.html">數據分析</a>
+                    <a class="breadcrumb-item" href="html/dashboard/admissions-analysis/index-admissions-analysis.html">招生資料分析</a>
+                    <span class="breadcrumb-item active">招生投入資源分析</span>
+                </nav>
+                <!-- Filter -->
+                <div class="card rounded mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label for="acad_year" class="form-label">學年度</label>
+                                <select id="acad_year" name="acad_year" class="form-select" aria-label="學年度">
+                                    <option value="114">114</option>
+                                    <option value="113">113</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chart and Table Card -->
+                <div class="card">
+                    <div class="card-body py-5">
+                        <!-- Title -->
+                        <h3 class="text-center mb-3">114學年度 招生投入資源分析</h3>
+                        <p class="d-block text-center">取近5年招生人數合計前30名國中</p>
+                        
+                        <!-- Canvas for Chart.js with RWD-->
+                        <div class="row justify-content-center mt-4 mb-4">
+                            <div class="col-12 col-lg-10">
+                                <div class="chart-container">
+                                    <canvas id="devote-resources"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Table with RWD -->
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-12 col-lg-6">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>投入資源類型</th>
+                                                <th>投入學校數</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>拜訪</th>
+                                                <td>45</td>
+                                            </tr>
+                                            <tr>
+                                                <th>簡介</th>
+                                                <td>38</td>
+                                            </tr>
+                                            <tr>
+                                                <th>集合宣導</th>
+                                                <td>30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>五專技職宣導</th>
+                                                <td>28</td>
+                                            </tr>
+                                            <tr>
+                                                <th>來訪</th>
+                                                <td>25</td>
+                                            </tr>
+                                            <tr>
+                                                <th>菸檳防制</th>
+                                                <td>22</td>
+                                            </tr>
+                                            <tr>
+                                                <th>潔牙宣導</th>
+                                                <td>20</td>
+                                            </tr>
+                                            <tr>
+                                                <th>多元入學說明</th>
+                                                <td>20</td>
+                                            </tr>
+                                            <tr>
+                                                <th>運動會</th>
+                                                <td>18</td>
+                                            </tr>
+                                            <tr>
+                                                <th>性平宣導</th>
+                                                <td>18</td>
+                                            </tr>
+                                            <tr>
+                                                <th>闖關活動支援</th>
+                                                <td>16</td>
+                                            </tr>
+                                            <tr>
+                                                <th>職業試探</th>
+                                                <td>15</td>
+                                            </tr>
+                                            <tr>
+                                                <th>月經教育宣導</th>
+                                                <td>14</td>
+                                            </tr>
+                                            <tr>
+                                                <th>博覽會</th>
+                                                <td>12</td>
+                                            </tr>
+                                            <tr>
+                                                <th>校慶醫護站</th>
+                                                <td>10</td>
+                                            </tr>
+                                            <tr>
+                                                <th>特色課程</th>
+                                                <td>8</td>
+                                            </tr>
+                                            <tr class="bg-light text-danger fw-bold">
+                                                <th>總計</th>
+                                                <td>339</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer text-center">
+                    All Rights Reserved by 敏惠醫護管理專科學校
+                </footer>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper -->
+        <!-- ============================================================== -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!-- Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!-- sticky kit -->
+    <script src="assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- 共用色票 -->
+    <script src="dist/js/chart-colors.js"></script>
+    
+    <script>
+        // Bar Chart - 招生投入資源分析
+        const barLabels = [
+            '拜訪', '簡介', '博覽會', '來訪', '集合宣導', '五專技職宣導',
+            '菸檳防制', '潔牙宣導', '職業試探', '運動會', '闖關活動支援',
+            '月經教育宣導', '多元入學說明', '性平宣導', '校慶醫護站', '特色課程'
+        ];
+        
+        const barData = {
+            labels: barLabels,
+            datasets: [{
+                label: '投入學校數',
+                data: [45, 38, 12, 25, 30, 28, 22, 20, 15, 18, 16, 14, 20, 18, 10, 8]
+            }]
+        };
+
+        // 自動分配顏色
+        ChartColors.assignColors(barData.datasets);
+
+        const barConfig = {
+            type: 'bar',
+            data: barData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = context.parsed.x || 0;
+                                return `投入 ${value} 所學校`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '投入學校數'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '投入資源類型'
+                        }
+                    }
+                }
+            }
+        };
+
+        // Initialize Bar Chart
+        const barChart = new Chart(
+            document.getElementById('devote-resources'),
+            barConfig
+        );
+    </script>
+
+</body>
+
+</html>

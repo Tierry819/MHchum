@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="horizontal-nav skin-green fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html">
+                        <img src="assets/images/logo/logo-icon.svg" alt="homepage" height="32" />
+                        <img src="assets/images/logo/logo-text.svg" alt="homepage" height="30" />
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav my-lg-0 ms-auto">
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/null.jpg" alt="user"> 
+                                <span class="hidden-md-down fw-bold">學務主任 &nbsp;<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end animated flipInY">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> 帳號管理</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="html/login.html" class="dropdown-item"><i class="fa fa-power-off"></i> 登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb align-items-center">
+                    <i class="mdi mdi-24px mdi-home me-1"></i><a class="breadcrumb-item" href="html/index.html">首頁</a>
+                    <a class="breadcrumb-item" href="html/dashboard/dashboard-index.html">數據分析</a>
+                    <a class="breadcrumb-item" href="html/dashboard/admissions-analysis/index-admissions-analysis.html">招生資料分析</a>
+                    <span class="breadcrumb-item active">新生人數來源國中分析</span>
+                </nav>
+                <!-- Filter -->
+                <div class="card rounded mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <label for="acad_year" class="form-label">學年度</label>
+                                <select id="acad_year" name="acad_year" class="form-select" aria-label="學年度">
+                                    <option value="114">114</option>
+                                    <option value="113">113</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="city" class="form-label">縣市</label>
+                                <select id="city" name="city" class="form-select" aria-label="縣市">
+                                    <option value="all">全部</option>
+                                    <option value="taipei">臺北市</option>
+                                    <option value="new-taipei">新北市</option>
+                                    <option value="taoyuan">桃園市</option>
+                                    <option value="taichung">臺中市</option>
+                                    <option value="tainan">臺南市</option>
+                                    <option value="kaohsiung">高雄市</option>
+                                    <option value="abroad">國外</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="department" class="form-label">新生人數排名區段</label>
+                                <select id="department" name="department" class="form-select" aria-label="科別">
+                                    <option value="all">全部</option>
+                                    <option value="top_30" selected>1~30%</option>
+                                    <option value="mid_31_60">31~60%</option>
+                                    <option value="bottom_61">61%~100%</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chart and Table Card -->
+                <div class="card">
+                    <div class="card-body py-5">
+                        <!-- Title -->
+                        <h3 class="text-center mb-3">114學年度 新生人數來源國中分析</h3>
+                        <p class="d-block text-center">
+                            <span class="d-block d-md-inline">縣市：全部</span>
+                            <span class="d-none d-md-inline">&emsp;</span>
+                            <span class="d-block d-md-inline">新生人數排名區段：1~30%</span>
+                            <span class="d-none d-md-inline">&emsp;</span>
+                            <span class="d-block d-md-inline">本屆新生來源國中總數：144所</span>
+                        </p>
+                        <!-- Table with RWD -->
+                        <div class="row justify-content-center mb-3">
+                            <div class="col-12 col-lg-6">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center">
+                                        <thead class="bg-light">
+                                            <tr>
+                                                <th>新生人數排名</th>
+                                                <th>畢業國中</th>
+                                                <th>新生人數</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr><th>1</th><td>臺南市南新國中</td><td>25</td></tr>
+                                            <tr><th>2</th><td>臺南市新東國中</td><td>24</td></tr>
+                                            <tr><th>3</th><td>臺南市佳里國中</td><td>14</td></tr>
+                                            <tr><th>4</th><td>臺南市南光高中</td><td>14</td></tr>
+                                            <tr><th>5</th><td>臺南市麻豆國中</td><td>14</td></tr>
+                                            <tr><th>6</th><td>臺南市新市國中</td><td>12</td></tr>
+                                            <tr><th>7</th><td>雲林縣建國國中</td><td>10</td></tr>
+                                            <tr><th>8</th><td>臺南市新化國中</td><td>10</td></tr>
+                                            <tr><th>9</th><td>臺南市六甲國中</td><td>8</td></tr>
+                                            <tr><th>10</th><td>臺南市安南國中</td><td>8</td></tr>
+                                            <tr><th>11</th><td>臺南市昭明國中</td><td>8</td></tr>
+                                            <tr><th>12</th><td>彰化縣秀水國中</td><td>7</td></tr>
+                                            <tr><th>13</th><td>臺南市和順國中</td><td>6</td></tr>
+                                            <tr><th>14</th><td>彰化縣溪湖國中</td><td>6</td></tr>
+                                            <tr><th>15</th><td>臺南市土城高中</td><td>5</td></tr>
+                                            <tr><th>16</th><td>臺南市永康國中</td><td>5</td></tr>
+                                            <tr><th>17</th><td>彰化縣田中高中</td><td>5</td></tr>
+                                            <tr><th>18</th><td>雲林縣東南國中</td><td>5</td></tr>
+                                            <tr><th>19</th><td>臺南市後壁國中</td><td>5</td></tr>
+                                            <tr><th>20</th><td>臺南市興國高中</td><td>5</td></tr>
+                                            <tr><th>21</th><td>臺南市瀛海高中</td><td>5</td></tr>
+                                            <tr><th>22</th><td>彰化縣大同國中</td><td>4</td></tr>
+                                            <tr><th>23</th><td>臺南市黎明高中</td><td>4</td></tr>
+                                            <tr><th>24</th><td>臺南市白河國中</td><td>4</td></tr>
+                                            <tr><th>25</th><td>臺南市南化國中</td><td>4</td></tr>
+                                            <tr><th>26</th><td>彰化縣鹿港國中</td><td>4</td></tr>
+                                            <tr><th>27</th><td>彰化縣彰安國中</td><td>4</td></tr>
+                                            <tr><th>28</th><td>彰化縣福興國中</td><td>4</td></tr>
+                                            <tr><th>29</th><td>臺南市鹽行國中</td><td>4</td></tr>
+                                            <tr><th>30</th><td>彰化縣二林高中</td><td>3</td></tr>
+                                            <tr><th>31</th><td>彰化縣大村國中</td><td>3</td></tr>
+                                            <tr><th>32</th><td>嘉義縣市太保國中</td><td>3</td></tr>
+                                            <tr><th>33</th><td>彰化縣永靖國中</td><td>3</td></tr>
+                                            <tr><th>34</th><td>嘉義縣市朴子國中</td><td>3</td></tr>
+                                            <tr><th>35</th><td>臺南市官田國中</td><td>3</td></tr>
+                                            <tr><th>36</th><td>彰化縣社頭國中</td><td>3</td></tr>
+                                            <tr><th>37</th><td>南投縣南投國中</td><td>3</td></tr>
+                                            <tr><th>38</th><td>臺南市南科國際實驗高中</td><td>3</td></tr>
+                                            <tr><th>39</th><td>臺南市柳營國中</td><td>3</td></tr>
+                                            <tr><th>40</th><td>彰化縣萬興國中</td><td>3</td></tr>
+                                            <tr><th>41</th><td>臺南市鹽水國中</td><td>3</td></tr>
+                                            <tr><th>42</th><td>南投縣仁愛國中</td><td>3</td></tr>
+                                            <tr><th>43</th><td>臺南市下營國中</td><td>2</td></tr>
+                                            <tr><th>44</th><td>臺南市大內國中</td><td>2</td></tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer text-center">
+                    All Rights Reserved by 敏惠醫護管理專科學校
+                </footer>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper -->
+        <!-- ============================================================== -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!-- Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!-- sticky kit -->
+    <script src="assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+
+</body>
+
+</html>

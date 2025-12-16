@@ -1,0 +1,61 @@
+/* Chart.js 圖表容器高度調整 */
+.chart-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 手機版 */
+@media (max-width: 767px) {
+    .chart-container {
+        height: 200px;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* 平板版 */
+@media (min-width: 768px) and (max-width: 991px) {
+    .chart-container {
+        height: 300px;
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+/* 桌機版 */
+@media (min-width: 992px) {
+    .chart-container {
+        height: 400px;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* 固定表格第一欄 - 需在 table 標籤加上 sticky-first-col class */
+.sticky-first-col thead th:first-child,
+.sticky-first-col tbody th:first-child {
+    position: sticky;
+    left: -1px;
+    min-width: 120px;
+}
+
+.sticky-first-col thead th:first-child{
+    z-index: 2;
+    background-color: #f8f9fa;
+}
+
+.sticky-first-col tbody th:first-child {
+    z-index: 1;
+    background-color: #fff;
+}
+
+.sticky-first-col tbody tr.bg-light th:first-child {
+    background-color: #f8f9fa;
+}
+
+.sticky-first-col th:not(:first-child),
+.sticky-first-col td:not(:first-child) {
+    min-width: 80px;
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="horizontal-nav skin-green fixed-layout">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header -->
+        <!-- ============================================================== -->
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="html/index.html">
+                        <img src="assets/images/logo/logo-icon.svg" alt="homepage" height="32" />
+                        <img src="assets/images/logo/logo-text.svg" alt="homepage" height="30" />
+                    </a>
+                </div>
+
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav my-lg-0 ms-auto">
+                        <!-- User Profile -->
+                        <li class="nav-item dropdown u-pro">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="assets/images/users/null.jpg" alt="user"> 
+                                <span class="hidden-md-down fw-bold">學務主任 &nbsp;<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end animated flipInY">
+                                <a href="javascript:void(0)" class="dropdown-item"><i class="ti-settings"></i> 帳號管理</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="html/login.html" class="dropdown-item"><i class="fa fa-power-off"></i> 登出</a>
+                            </div>
+                        </li>
+                        <!-- End User Profile -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row mt-4">
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-shield-key-outline"></i>
+                                <h4 class="card-title">權限管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="html/dashboard/dashboard-index.html">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-chart-bar"></i>
+                                <h4 class="card-title">數據分析</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-human-male-female"></i>
+                                <h4 class="card-title">聯招生管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-account-convert"></i>
+                                <h4 class="card-title">轉學生管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-school"></i>
+                                <h4 class="card-title">學籍管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-google-classroom"></i>
+                                <h4 class="card-title">班級管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-human-male-board"></i>
+                                <h4 class="card-title">人事管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-calendar"></i>
+                                <h4 class="card-title">請假管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-hospital-building"></i>
+                                <h4 class="card-title">護理科實習</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-book-open-page-variant-outline"></i>
+                                <h4 class="card-title">課程管理系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-seal"></i>
+                                <h4 class="card-title">成績管理</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-note-text"></i>
+                                <h4 class="card-title">學分管理</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-lead-pencil"></i>
+                                <h4 class="card-title">試務管理</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-cards-outline"></i>
+                                <h4 class="card-title">成績讀卡系統管理</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-cash-multiple"></i>
+                                <h4 class="card-title">會計室學雜費</h4>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a class="card text-center" href="#">
+                            <div class="card-body">
+                                <i class="mdi mdi-36px mdi-account-multiple-plus"></i>
+                                <h4 class="card-title">招生系統</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <footer class="footer text-center">
+                    All Rights Reserved by 敏惠醫護管理專科學校
+                </footer>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper -->
+        <!-- ============================================================== -->
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Main wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <!-- Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!-- Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!-- sticky kit -->
+    <script src="assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+
+</body>
+
+</html>

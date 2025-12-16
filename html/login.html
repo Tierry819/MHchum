@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+    <base href="../../..">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/logo/logo-icon.svg">
+    <title>敏惠醫護後台系統</title>
+    <!-- page css -->
+    <link href="dist/css/pages/login-register-lock.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <link href="dist/css/MHcustom.css" rel="stylesheet">
+    <!-- Material Design Icons -->
+    <link href="https://cdn.materialdesignicons.com/6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+
+<body class="skin-default card-no-border">
+    <!-- ============================================================== -->
+    <!-- Preloader -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper -->
+    <!-- ============================================================== -->
+    <section id="wrapper">
+        <div class="login-register" style="background-image:url(assets/images/background/MH-bg.webp);">
+            <div class="login-box card">
+                <div class="card-body">
+                    <div class="logo text-center m-t-10">
+                        <span class="d-block"><img src="assets/images/logo/logo-icon.svg" alt="logo" width="150px"/></span>
+                    </div>
+                    <form class="form-horizontal form-material" id="loginform" action="html/index.html">
+                        <h3 class="text-center m-t-20 m-b-20">登入</h3>
+                        <div class="form-group ">
+                            <div class="col-12">
+                                <input class="form-control" type="username" required placeholder="帳號"> 
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <input class="form-control" type="password" required placeholder="密碼"> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="d-flex no-block align-items-center">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="remember-me">
+                                        <label class="form-check-label" for="remember-me">記住我</label>
+                                    </div> 
+                                    <div class="ms-auto">
+                                        <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> 忘記密碼？</a> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-12 p-b-20">
+                                <button class="btn w-100 btn-lg btn-info btn-rounded text-white" type="submit">登入</button>
+                            </div>
+                        </div>
+                    </form>
+                    <form class="form-horizontal form-material" id="recoverform" action="html/index.html">
+                        <div class="form-group ">
+                            <div class="col-12 m-t-20 m-b-20 text-center">
+                                <h3>找回密碼</h3>
+                                <p class="text-muted">簡訊驗證</p>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-12">
+                                <input class="form-control" type="tel" required placeholder="請輸入手機號碼" aria-label="mobile" aria-describedby="mobile"> 
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-lg w-100 text-uppercase waves-effect waves-light" type="submit">送出</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="assets/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="assets/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script type="text/javascript">
+        $(function() {
+            $(".preloader").fadeOut();
+        });
+        $(function() {
+            $('[data-bs-toggle="tooltip"]').tooltip()
+        });
+        // ============================================================== 
+        // Login and Recover Password 
+        // ============================================================== 
+        $('#to-recover').on("click", function() {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+    </script>
+
+</body>
+
+</html>
